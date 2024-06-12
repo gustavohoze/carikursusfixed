@@ -1,7 +1,13 @@
+"use client"
 import { Button } from "@/components/ui/button";
-import React from "react";
+import React, { useState } from "react";
+import RegisterButton from "../component/RegisterButton";
 
 const page = () => {
+  const [activeNamaLengkap, setActiveNamaLengkap] = useState("");
+  const [activeUsername, setActiveUsername] = useState("");
+  const [activePassword, setActivePassword] = useState("");
+  const [activeEmail, setActiveEmail] = useState("");
   return (
     <main className="h-[90vh] min-w-full bg-teal-200/80 flex items-center justify-center">
       <div className="min-h-[70vh] min-w-[60vw] bg-white rounded-xl flex shadow-lg">
@@ -21,23 +27,31 @@ const page = () => {
               type="text"
               className="border-b-black border-b-2 p-2 text-sm w-30 text-teal-600 active:border-none"
               placeholder="Nama lengkap"
+              value={activeNamaLengkap}
+              onChange={(e)=>setActiveNamaLengkap(e.target.value)}
               
             />
             <input
               type="text"
               className="border-b-black border-b-2 p-2 text-sm w-30 text-teal-600 active:border-none"
               placeholder="Email"
+              value={activeEmail}
+              onChange={(e)=>setActiveEmail(e.target.value)}
               
             />
             <input
               type="text"
               className="border-b-black border-b-2 p-2 text-sm w-30"
               placeholder="Username"
+              value={activeUsername}
+              onChange={(e)=>setActiveUsername(e.target.value)}
             />
             <input
               type="password"
               className="border-b-black border-b-2 p-2 text-sm w-30"
-              placeholder="Kunci Sandi"
+              placeholder="Password"
+              value={activePassword}
+              onChange={(e)=>setActivePassword(e.target.value)}
             />
           
           </div>
@@ -50,7 +64,7 @@ const page = () => {
             </a>
           </div>
 
-        <Button className="mx-4">Register</Button>
+        <RegisterButton username={activeUsername} email={activeEmail} namaLengkap={activeNamaLengkap} password={activePassword}/>
         <div className="flex text-center text-xs items-end gap-1 justify-center">
         <p className="text-slate-600">Sudah memiliki akun?</p>
         <a href="/login" className="underline ">Sign in</a>

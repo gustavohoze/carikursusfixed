@@ -1,9 +1,11 @@
-
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 
 import LoginButton from '../component/LoginButton'
 
 const page = () => {
+  const [activeUsername, setActiveUsername] = useState("");
+  const [activePassword, setActivePassword] = useState("");
   return (
     <main className="h-[90vh] min-w-full bg-teal-200/80 flex items-center justify-center">
       <div className="min-h-[70vh] min-w-[60vw] bg-white rounded-xl flex shadow-lg">
@@ -27,16 +29,19 @@ const page = () => {
               type="text"
               className="border-b-black border-b-2 p-2 text-sm w-30"
               placeholder="Username"
+              value={activeUsername}
+              onChange={(e)=>{setActiveUsername(e.target.value)}}
             />
             <input
               type="password"
               className="border-b-black border-b-2 p-2 text-sm w-30"
               placeholder="Password"
+              value={activePassword}
+              onChange={(e)=>{setActivePassword(e.target.value)}}
             />
           
           </div>
-
-        <LoginButton/>
+        <LoginButton username={activeUsername} password={activePassword}/>
         </div>
       </div>
     </main>
