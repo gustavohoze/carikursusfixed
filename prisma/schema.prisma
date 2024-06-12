@@ -54,6 +54,7 @@ model Profile {
 
 model User {
   id        String   @id @default(cuid())
+  namaLengkap String @unique
   email     String   @unique
   username  String   @unique
   password  String
