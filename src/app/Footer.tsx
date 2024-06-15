@@ -2,8 +2,8 @@ import React from "react";
 
 const LoginFooter = () => {
   return (
-    <div className="min-h-[40vh] min-w-full flex flex-col font-normal gap-12 shadow-md">
-      <div className="h-[20vh] flex min-w-full  justify-center py-4">
+    <div className="h-[40vh] min-w-full flex flex-col font-normal gap-12 shadow-inner">
+      <div className="h-[20vh] flex min-w-full  justify-center py-6">
         <div className="text-sm gap-3 flex flex-col py-1">
           <img src="/logo.png" width={60} height={60} alt="" />
           <p className="font-normal text-sm">Copyright © 2024 CariKerja ltd.</p>

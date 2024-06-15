@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import HeaderHomePage from "./HeaderHomePage";
 import Link from "next/link";
+import Footer from "./Footer";
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
         </div>
 
       </div>
+      <Footer />
     </main>
   );
 }
