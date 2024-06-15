@@ -13,7 +13,7 @@ const LoginHeader = () => {
           CariKursus
         </a>
       </span>
-      <a href="/" className="font-bold">
+      <a href="/" className="font-bolder">
         <Button> Home</Button>
       </a>
     </header>

@@ -1,27 +1,32 @@
+
 import { Button } from "@/components/ui/button";
+import HeaderHomePage from "./HeaderHomePage";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <main>
-      <header className="flex justify-between p-4 min-h-[10vh] min-w-full shadow-md">
-        <span className="flex items-center px-2 gap-4">
-          <img src="/logo.png" alt="" width={25} height={25}/>
-          <a href="/" className="font-bold uppercase tracking-wide text-teal-500 text-xl">CariKursus</a>
-        </span>
-        <span className="flex gap-4">
-          <Button asChild>
+      <HeaderHomePage />
+      <div className="min-w-full min-h-screen flex items-center justify-center gap-24">
+        <img src="/homepage.png" alt=""  width={500} height={500}/>
+        <div className=" h-[250px] pt-4 flex flex-col gap-6">
+          <h1 className="text-4xl font-bold text-teal-500 uppercase">Cari Kursus!</h1>
+          <p className="w-[35ch] text-teal-500/70 text-md">Want to have fun and learn new things? Jump into our awesome courses and let's play and learn together!</p>
+          <div className="flex gap-6">
+          <Button asChild> 
             <Link href="/login">
             Login
             </Link>
             </Button>
-          <Button variant={"primaryOutline"} asChild>
+          <Button variant={"primaryOutline"} asChild> 
             <Link href="/register">
             Register
             </Link>
             </Button>
-        </span>
-      </header>
+          </div>
+        </div>
+
+      </div>
     </main>
   );
 }

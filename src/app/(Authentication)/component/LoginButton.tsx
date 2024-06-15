@@ -30,6 +30,7 @@ const LoginButton = ({username, password} : {username:string, password:string}) 
             return
         }
         toast.success("Login successfull!")
+        localStorage.setItem("user",JSON.stringify(res));
         router.replace("/")
     }}>Login</Button>
     </div>
