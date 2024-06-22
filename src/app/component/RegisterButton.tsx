@@ -1,12 +1,10 @@
-"use client"
 import { Button } from '@/components/ui/button'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import { Toaster, toast } from 'sonner'
 
 
 const handleSubmit = async (username:string,password:string,email:string,namaLengkap:string)=>{
-    const route = useRouter();
     let role = "student"
     if(email.includes("admin")){
         role = "admin";
@@ -20,18 +18,25 @@ const handleSubmit = async (username:string,password:string,email:string,namaLen
         return
     }
     toast.success("Account has been successfully created!")
-    route.replace("/");
+    return res;
 }
 
 const RegisterButton = ({username,password,email,namaLengkap}: {username:string,password:string,email:string,namaLengkap:string}) => {
-  return (
+    const route = useRouter();
+    return (
     <div className='flex justify-center'>
 
     <Toaster position='top-center' richColors/>
 
-    <Button className="w-[23vw]" onClick={()=>{
-        handleSubmit(username,password,email,namaLengkap);
+    <Button className="w-[23vw]" onClick={async ()=>{
+        const res = await handleSubmit(username,password,email,namaLengkap);
+        // if(res?.status==200){
+        //     setTimeout(()=>{
+        //         route.replace("/")
+        //     }, 2000)
+        // }
         }}>Register</Button>
+        
     </div>
   )
 }

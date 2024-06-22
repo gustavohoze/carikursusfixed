@@ -19,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link rel="icon" href="/logo.png" sizes="any" />
+      <head>
+      <link rel="icon" href="/public/logo.png" sizes="any" />
+      </head>
       <body className={poppins.className}>
         {children}
         <Footer />

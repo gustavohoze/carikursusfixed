@@ -31,7 +31,13 @@ const LoginButton = ({username, password} : {username:string, password:string}) 
         }
         toast.success("Login successfull!")
         localStorage.setItem("user",JSON.stringify(res));
-        router.replace("/")
+        const user = JSON.parse(localStorage.getItem("user") as string);
+        if(user.data.role === "admin"){
+            router.replace("/AdminPage")
+            return
+        }
+        router.replace("/UserPage")
+
     }}>Login</Button>
     </div>
   )

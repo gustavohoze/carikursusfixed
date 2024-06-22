@@ -30,6 +30,7 @@ model Content {
   id        String   @id @default(cuid())
   index     Int
   image     String?
+  question String
   postId    String
   post      Post     @relation(fields: [postId], references: [id])
   options   Option[]
@@ -41,6 +42,7 @@ model Option {
   second    String?
   third     String?
   fourth    String?
+  answer    String
   contentId String
   content   Content  @relation(fields: [contentId], references: [id])
 }

@@ -2,7 +2,7 @@ import React from "react";
 
 const LoginFooter = () => {
   return (
-    <div className="h-[40vh] min-w-full flex flex-col font-normal gap-12 shadow-inner">
+    <div className="h-[40vh] min-w-full flex flex-col font-normal gap-12 shadow-inner text-teal-500/70">
       <div className="h-[20vh] flex min-w-full  justify-center py-6">
         <div className="text-sm gap-3 flex flex-col py-1">
           <img src="/logo.png" width={60} height={60} alt="" />
@@ -11,32 +11,32 @@ const LoginFooter = () => {
         </div>
         <div className="flex justify-around min-w-[60%] ">
           <div className="flex flex-col gap-3">
-            <h1 className="text-m ">Company</h1>
-            <a href="" className="text-sm text-zinc-700">
+            <h1 className="text-m text-teal-500 ">Company</h1>
+            <a href="" className="text-sm ">
               About Us
             </a>
-            <a href="" className="text-sm text-zinc-700">
+            <a href="" className="text-sm ">
               FAQs
             </a>
-            <a href="" className="text-sm text-zinc-700">
+            <a href="" className="text-sm ">
               Privacy Policy
             </a>
-            <a href="" className="text-sm text-zinc-700">
+            <a href="" className="text-sm ">
               Testimonials
             </a>
           </div>
           <div className="flex flex-col gap-3">
-            <h1 className="text-m">Support</h1>
-            <a href="" className="text-sm text-zinc-700">
+            <h1 className="text-m text-teal-500">Support</h1>
+            <a href="" className="text-sm">
               Help Center
             </a>
-            <a href="" className="text-sm text-zinc-700">
+            <a href="" className="text-sm">
               Terms of Service
             </a>
-            <a href="" className="text-sm text-zinc-700">
+            <a href="" className="text-sm">
               Legal
             </a>
-            <a href="" className="text-sm text-zinc-700">
+            <a href="" className="text-sm">
               Status
             </a>
           </div>

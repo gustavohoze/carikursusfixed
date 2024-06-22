@@ -1,7 +1,7 @@
 "use client"
-import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
 import RegisterButton from "../component/RegisterButton";
+import LoginHeader from "../component/LoginHeader";
 
 const page = () => {
   const [activeNamaLengkap, setActiveNamaLengkap] = useState("");
@@ -9,6 +9,8 @@ const page = () => {
   const [activePassword, setActivePassword] = useState("");
   const [activeEmail, setActiveEmail] = useState("");
   return (
+    <div>
+      <LoginHeader />
     <main className="h-[90vh] min-w-full bg-teal-200/80 flex items-center justify-center">
       <div className="min-h-[70vh] min-w-[60vw] bg-white rounded-xl flex shadow-lg">
         <div className="flex items-center justify-center h-[70vh] w-[50%] rounded-l-lg with-background-image">
@@ -20,39 +22,39 @@ const page = () => {
             height={900}
           />
         </div>
-        <div className="w-[50%] rounded-r-lg h-[70vh] flex flex-col p-8 justify-center gap-4 text-teal-500">
+        <div className="w-[50%] rounded-r-lg h-[70vh] flex flex-col p-8 justify-center gap-4 text-teal-600">
           <h1 className="uppercase mb-4 text-center font-bold">Registration</h1>
           <div className="flex flex-col gap-4 px-4">
             <input
               type="text"
-              className="border-b-black border-b-2 p-2 text-sm w-30 text-teal-600 active:border-none"
+              className="border-b-black border-b-2 p-2 text-sm w-30 active:border-none"
               placeholder="Nama lengkap"
               value={activeNamaLengkap}
               onChange={(e)=>setActiveNamaLengkap(e.target.value)}
               
-            />
+              />
             <input
               type="text"
-              className="border-b-black border-b-2 p-2 text-sm w-30 text-teal-600 active:border-none"
+              className="border-b-black border-b-2 p-2 text-sm w-30 active:border-none"
               placeholder="Email"
               value={activeEmail}
               onChange={(e)=>setActiveEmail(e.target.value)}
               
-            />
+              />
             <input
               type="text"
               className="border-b-black border-b-2 p-2 text-sm w-30"
               placeholder="Username"
               value={activeUsername}
               onChange={(e)=>setActiveUsername(e.target.value)}
-            />
+              />
             <input
               type="password"
               className="border-b-black border-b-2 p-2 text-sm w-30"
               placeholder="Password"
               value={activePassword}
               onChange={(e)=>setActivePassword(e.target.value)}
-            />
+              />
           
           </div>
           <div className="flex flex-col">
@@ -72,6 +74,7 @@ const page = () => {
         </div>
       </div>
     </main>
+              </div>
   );
 };
 
