@@ -29,7 +29,7 @@ const page = async () => {
         <div className='w-[18ch] text-teal-500/90 bg-white rounded-md text-center text-2xl p-2 my-8 border-b-4 border-slate-300'>
           Available Courses!
         </div>
-        <div className='min-w-full min-h-[70vh] flex items-center justify-center gap-12 border-white border flex-wrap'>
+        <div className='min-w-full min-h-[70vh] flex items-center justify-center gap-12 flex-wrap'>
           {/* <div className='w-1 h-1 border-r-white border-y-[25px] border-r-[50px] border-y-transparent flex relative' /> */}
           {/* <Cards></Cards> */}
           {

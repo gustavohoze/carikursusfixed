@@ -7,10 +7,14 @@ const prisma = new PrismaClient();
 
 const getPost = async () => {
   const res = await prisma.post.findMany({
-    take: 9,
+    where: {
+      published: true, 
+    },
+    take: 9, 
   });
   return res;
 };
+
 
 const page = async () => {
   const posts = await getPost();
@@ -45,12 +49,7 @@ const page = async () => {
               );
             })}
           </div>
-          <div className="min-w-full flex gap-4 items-center justify-center my-6">
-            <Button>Previous</Button>
-            <Button variant={"primaryOutline"} className="bg-white" size={"lg"}>
-              Next
-            </Button>
-          </div>
+         
         </div>
       </div>
     </main>
