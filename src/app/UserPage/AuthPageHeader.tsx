@@ -61,19 +61,19 @@ const AuthPageHeader = () => {
       <img src="/logo.png" alt="" className="w-10 h-10 self-center" />
       <div className="flex items-center gap-2 w-13 h-7">
         <img src="/houseLogo.png" alt="" className="w-7" />
-        <a href="/AdminPage">Home</a>
+        <a href="/UserPage">Home</a>
       </div>
       <div className="flex items-center gap-2 w-13 h-7">
         <img src="/taskLogo.png" alt="" className="w-7" />
-        <a href="/AdminPage/Course">My Course</a>
+        <a href="/UserPage/Course">My Course</a>
       </div>
       <div className="flex items-center gap-2 w-13 h-7">
         <img src="/compassLogo.png" alt="" className="w-7" />
-        <a href="/AdminPage/Explore">Explore</a>
+        <a href="/UserPage/Explore">Explore</a>
       </div>
       <div className="flex items-center gap-2 w-13 h-7">
         <img src="/trophyLogo.png" alt="" className="w-7" />
-        <a href="/AdminPage/Leaderboard">Leaderboard</a>
+        <a href="/UserPage/Leaderboard">Leaderboard</a>
       </div>
       <div className="flex w-30 h-[10vh] gap-5 items-center relative">
         <img src="/bellLogo.png" alt="" className="w-7 h-7" />

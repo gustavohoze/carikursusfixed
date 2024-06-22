@@ -1,6 +1,7 @@
-// components/page.tsx
-"use client"
-import React, { useEffect, useState } from "react";
+// pages/leaderboard.tsx
+
+import React from "react";
+import { GetServerSideProps } from "next";
 import { PrismaClient } from "@prisma/client";
 import AuthPageHeader from "../AuthPageHeader";
 
@@ -27,32 +28,11 @@ type User = {
   posts: Post[];
 };
 
-const Page: React.FC = () => {
-  const [leaderboard, setLeaderboard] = useState<User[] | null>(null);
+type LeaderboardProps = {
+  leaderboard: User[];
+};
 
-  useEffect(() => {
-    const fetchLeaderboard = async () => {
-      try {
-        const users = await prisma.user.findMany({
-          include: {
-            posts: true,
-          },
-          orderBy: {
-            posts: {
-              _count: "desc",
-            },
-          },
-        });
-        console.log("Fetched users:", users); // Log fetched users
-        setLeaderboard(users);
-      } catch (error) {
-        console.error("Error fetching leaderboard:", error);
-      }
-    };
-
-    fetchLeaderboard();
-  }, []);
-
+const Leaderboard: React.FC<LeaderboardProps> = ({ leaderboard }) => {
   return (
     <main>
       <AuthPageHeader />
@@ -62,7 +42,7 @@ const Page: React.FC = () => {
             Leaderboard
           </div>
           <div className="min-w-full min-h-[70vh] flex flex-col p-5 gap-3 flex-wrap items-center justify-start">
-            {leaderboard ? (
+            {leaderboard &&
               leaderboard.map((user, index) => (
                 <div
                   key={user.id}
@@ -70,7 +50,6 @@ const Page: React.FC = () => {
                 >
                   <div className="flex gap-3 items-center">
                     <span>{index + 1}.</span>
-                    {/* Example avatar image */}
                     <img
                       src="https://api.dicebear.com/9.x/adventurer/svg"
                       alt=""
@@ -80,10 +59,7 @@ const Page: React.FC = () => {
                   </div>
                   <span>{user.posts.length} Posts</span>
                 </div>
-              ))
-            ) : (
-              <p>Loading...</p>
-            )}
+              ))}
           </div>
         </div>
       </div>
@@ -91,4 +67,32 @@ const Page: React.FC = () => {
   );
 };
 
-export default Page;
+export default Leaderboard;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  try {
+    const users = await prisma.user.findMany({
+      include: {
+        posts: true,
+      },
+      orderBy: {
+        posts: {
+          _count: "desc",
+        },
+      },
+    });
+
+    return {
+      props: {
+        leaderboard: users,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching leaderboard:", error);
+    return {
+      props: {
+        leaderboard: [],
+      },
+    };
+  }
+};

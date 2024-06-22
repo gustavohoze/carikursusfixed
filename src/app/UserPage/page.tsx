@@ -1,17 +1,30 @@
-"use client"
-import React from 'react'
-import AuthPageHeader from '../AdminPage/AuthPageHeader'
+import React from "react";
+import { PrismaClient, Post } from "@prisma/client";
+import AuthPageHeader from "./AuthPageHeader";
+import ClientSideComponent from "./ClientSideComponent";
 
-const page = () => {
+
+const prisma = new PrismaClient();
+
+const getPost = async (): Promise<Post[]> => {
+  const res = await prisma.post.findMany({
+    where: {
+      published: true,
+    },
+    take: 9,
+  });
+  return res;
+};
+
+const Page = async () => {
+  const posts = await getPost();
+
   return (
-    <div>
+    <main>
       <AuthPageHeader />
-      <div className='bg-teal-200/80'>
-      <div className='min-w-full min-h-[50vh]'></div>
+      <ClientSideComponent initialPosts={posts} />
+    </main>
+  );
+};
 
-      </div>
-      </div>
-  )
-}
-
-export default page
+export default Page;
