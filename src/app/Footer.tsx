@@ -43,16 +43,16 @@ const LoginFooter = () => {
         </div>
       </div>
       <div className="h-[10vh] flex gap-3 px-40 items-end">
-        <a href="/" className="hover:opacity-50">
+        <a href="https://www.facebook.com/" className="hover:opacity-50">
           <img src="/fb.png" alt="" width={45} height={45} />
         </a>
-        <a href="/" className="hover:opacity-50">
+        <a href="https://www.youtube.com/" className="hover:opacity-50">
           <img src="/yt.png" alt="" width={45} height={45} />
         </a>
-        <a href="/" className="hover:opacity-50">
+        <a href="https://www.instagram.com/" className="hover:opacity-50">
           <img src="/ig.png" alt="" width={45} height={45} />
         </a>
-        <a href="/" className="hover:opacity-50">
+        <a href="https://x.com/?lang=id" className="hover:opacity-50">
           <img src="/twt.png" alt="" width={45} height={45} />
         </a>
       </div>
